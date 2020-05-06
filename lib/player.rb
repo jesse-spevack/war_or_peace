@@ -1,5 +1,3 @@
-require './lib/deck'
-
 class Player
   extend Forwardable
 

@@ -1,7 +1,7 @@
 require './test/test_helper'
 require './lib/deck'
 
-class CardTest < Minitest::Test
+class DeckTest < Minitest::Test
   def setup
     @cards = [
       Card.new(:diamond, 'Queen', 12),
