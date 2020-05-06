@@ -4,7 +4,7 @@ class Deck
   extend Forwardable
 
   attr_reader :cards
-  def_delegators :@cards, :size
+  def_delegators :@cards, :size, :empty?
   def_delegator :@cards, :shift, :remove_card
   def_delegator :@cards, :<<, :add_card
 
