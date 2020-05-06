@@ -3,20 +3,21 @@ require './lib/card'
 
 class CardTest < Minitest::Test
   def setup
-    card = Card.new(:diamond, 'Queen', 12)
+    @subject = Card.new(:diamond, 'Queen', 12)
   end
 
   def test_it_exists
-    card = Card.new(:diamond, 'Queen', 12)
-
-    assert_instance_of Card, card
+    assert_instance_of Card, @subject
   end
 
   def test_it_has_readable_attributes
-    card = Card.new(:diamond, 'Queen', 12)
+    assert_equal :diamond, @subject.suit
+    assert_equal 'Queen', @subject.value
+    assert_equal 12, @subject.rank
+  end
 
-    assert_equal :diamond, card.suit
-    assert_equal 'Queen', card.value
-    assert_equal 12, card.rank
+  def test_face_card
+    assert_equal true, @subject.face_card?
+    assert_equal false, Card.new(:spade, '10', 10).face_card?
   end
 end
