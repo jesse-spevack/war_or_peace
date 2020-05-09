@@ -67,4 +67,10 @@ class DeckTest < Minitest::Test
   def test_draw_three
     assert @cards.all? { |card| @subject.draw_three.include?(card) }
   end
+
+  def test_add_cards
+    cards = [Card.new(:club, '5', 5), Card.new(:club, '4', 4)]
+    @subject + cards
+    assert (cards + @cards).all? { |card| @subject.cards.include?(card) }
+  end
 end

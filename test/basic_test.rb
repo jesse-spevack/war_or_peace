@@ -4,16 +4,10 @@ require './lib/basic'
 class BasicTest < Minitest::Test
   def setup
     @card1 = Card.new(:heart, 'Jack', 11)
-    @card2 = Card.new(:heart, '10', 10)
-    @card3 = Card.new(:heart, '9', 9)
-    @card4 = Card.new(:diamond, 'Jack', 11)
-    @card5 = Card.new(:heart, '8', 8)
-    @card6 = Card.new(:diamond, 'Queen', 12)
-    @card7 = Card.new(:heart, '3', 3)
-    @card8 = Card.new(:diamond, '2', 2)
+    @card2 = Card.new(:diamond, '2', 2)
 
-    @deck1 = Deck.new([@card1, @card2, @card5, @card8])
-    @deck2 = Deck.new([@card3, @card4, @card6, @card7])
+    @deck1 = Deck.new([@card1])
+    @deck2 = Deck.new([@card2])
 
     @player1 = Player.new("Megan", @deck1)
     @player2 = Player.new("Aurora", @deck2)
@@ -30,10 +24,17 @@ class BasicTest < Minitest::Test
 
     @subject.pile_cards
 
-    assert [@card1, @card3].all? { |card| @subject.spoils_of_war.include?(card) }
+    assert [@card1, @card2].all? { |card| @subject.spoils_of_war.include?(card) }
   end
 
   def test_type
     assert_equal :basic, @subject.type
+  end
+
+  def test_award_spoils
+    @subject.pile_cards
+    @subject.award_spoils
+    expected_cards = @player1.deck.cards
+    assert [@card1, @card2].all? { |card| expected_cards.include?(card) }
   end
 end

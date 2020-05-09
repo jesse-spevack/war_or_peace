@@ -1,3 +1,5 @@
+require './lib/card'
+
 class Deck
   extend Forwardable
 
@@ -8,6 +10,10 @@ class Deck
 
   def initialize(cards)
     @cards = cards
+  end
+
+  def +(cards)
+    @cards += cards
   end
 
   def rank_of_card_at(index)

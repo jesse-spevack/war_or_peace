@@ -40,4 +40,11 @@ class MutuallyAssuredDestructionTest < Minitest::Test
   def test_type
     assert_equal :mutually_assured_destruction, @subject.type
   end
+
+  def test_award_spoils
+    @subject.pile_cards
+    @subject.award_spoils
+    assert_equal [@card4], @player1.deck.cards
+    assert_equal [@card8], @player2.deck.cards
+  end
 end

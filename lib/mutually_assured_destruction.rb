@@ -12,4 +12,8 @@ class MutuallyAssuredDestruction < Turn
   def type
     :mutually_assured_destruction
   end
+
+  def award_spoils
+    nil
+  end
 end
