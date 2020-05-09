@@ -16,4 +16,8 @@ class MutuallyAssuredDestruction < Turn
   def award_spoils
     nil
   end
+
+  def message
+    "*mutually assured destruction* 6 cards removed from play"
+  end
 end

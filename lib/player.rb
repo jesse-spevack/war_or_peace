@@ -1,3 +1,4 @@
+require 'forwardable'
 require './lib/deck'
 
 class Player

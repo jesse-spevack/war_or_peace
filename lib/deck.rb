@@ -1,3 +1,4 @@
+require 'forwardable'
 require './lib/card'
 
 class Deck
@@ -17,7 +18,7 @@ class Deck
   end
 
   def rank_of_card_at(index)
-    cards[index]&.rank
+    cards[index]&.rank.to_i
   end
 
   def high_ranking_cards

@@ -14,4 +14,8 @@ class Card
   def face_card?
     rank >= MINIMUM_FACE_CARD_VALUE
   end
+
+  def to_s
+    "#{value} of #{suit}s"
+  end
 end

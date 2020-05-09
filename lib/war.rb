@@ -6,4 +6,8 @@ class War < Turn
   def pile_cards
     @spoils_of_war += [deck1, deck2].flat_map(&:draw_three).shuffle
   end
+
+  def message
+    "War - #{winner.name} won 6 cards"
+  end
 end
