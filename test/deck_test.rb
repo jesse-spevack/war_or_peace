@@ -63,4 +63,8 @@ class DeckTest < Minitest::Test
     assert_equal [expected[1]], @subject.high_ranking_cards
     assert_equal 33.33, @subject.percent_high_ranking
   end
+
+  def test_draw_three
+    assert @cards.all? { |card| @subject.draw_three.include?(card) }
+  end
 end

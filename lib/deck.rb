@@ -23,6 +23,6 @@ class Deck
   end
 
   def draw_three
-    3.times { self.remove_card }
+    Array.new(3).map { self.remove_card }
   end
 end
